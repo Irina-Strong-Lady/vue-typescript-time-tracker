@@ -1,5 +1,5 @@
 import {
-  CheckCircleIcon as CheckCircl,
+  CheckCircleIcon as CheckCircle,
   ListBulletIcon as ListBullet,
   ArrowPathIcon as ArrowPath,
   ChartBarIcon as ChartBar,
@@ -23,7 +23,7 @@ export const ICON_CHECK_CIRCLE = 'CheckCircle'
 export const ICON_PLUS = 'Plus'
 
 export const ICONS = {
-  [ICON_CHECK_CIRCLE]: CheckCircl,
+  [ICON_CHECK_CIRCLE]: CheckCircle,
   [ICON_LIST_BULLET]: ListBullet,
   [ICON_ARROW_PATH]: ArrowPath,
   [ICON_CHART_BAR]: ChartBar,

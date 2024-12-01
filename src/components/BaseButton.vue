@@ -5,7 +5,7 @@ import {
   BUTTON_TYPE_WARNING,
   BUTTON_TYPE_DANGER,
   BUTTON_TYPE_NEUTRAL
-} from '@/constants'
+} from '../constants'
 
 const typeClasses = {
   [BUTTON_TYPE_PRIMARY]: 'bg-purple-500 enabled:hover:bg-purple-600 text-white',
