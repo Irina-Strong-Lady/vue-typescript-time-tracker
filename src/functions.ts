@@ -5,9 +5,9 @@ import {
   MILLISECONDS_IN_SECOND,
   MINUTES_IN_HOUR,
   SECONDS_IN_MINUTE
-} from './constants'
-import { type SelectOption, ProgressColorClass } from './types'
-import { isNull } from './validators'
+} from '@/constants'
+import { type SelectOption, ProgressColorClass } from '@/types'
+import { isNull } from '@/validators'
 
 export function normalizeSelectValue(value: any): any {
   return isNull(value) || isNaN(value) ? value : +value

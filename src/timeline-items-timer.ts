@@ -1,7 +1,7 @@
 import { ref } from 'vue'
-import { MILLISECONDS_IN_SECOND } from './constants'
-import { activeTimelineItem, updateTimelineItem } from './timeline-items'
-import type { TimelineItem } from './types'
+import { MILLISECONDS_IN_SECOND } from '@/constants'
+import { activeTimelineItem, updateTimelineItem } from '@/timeline-items'
+import type { TimelineItem } from '@/types'
 
 const timelineItemTimer = ref<number | undefined>()
 

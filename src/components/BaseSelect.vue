@@ -1,34 +1,32 @@
-<script setup>
+<script lang="ts" generic="T extends number | string" setup>
 import BaseIcon from '@/components/BaseIcon.vue'
 import { BUTTON_TYPE_NEUTRAL } from '@/constants'
 import { normalizeSelectValue } from '@/functions'
 import { ICON_X_MARK } from '@/icons'
-import { isSelectValueValid, isUndefinedOrNull, validateSelectOptions } from '@/validators'
+import { isUndefinedOrNull } from '@/validators'
 import { computed } from 'vue'
 import BaseButton from './BaseButton.vue'
+import type { SelectOption } from '@/types'
 
-const props = defineProps({
-  selected: [String, Number],
-  options: {
-    type: Array,
-    required: true,
-    validator: validateSelectOptions
-  },
-  placeholder: {
-    type: String,
-    required: true
-  }
-})
+const props = defineProps<{
+  options: SelectOption<T>[]
+  selected: T | null
+  placeholder: string
+}>()
 
-const emit = defineEmits({
-  select: isSelectValueValid
-})
+const emit = defineEmits<{
+  // Первый вариант
+  // (e: 'select', value: number | string | null): void
 
-const isNotSelected = computed(() => {
+  // Более лаконичный вариант  
+  select: [value: T | null]
+}>()
+
+const isNotSelected = computed((): boolean => {
   return isUndefinedOrNull(props.selected)
 })
 
-function select(value) {
+function select(value: string | null): void {
   emit('select', normalizeSelectValue(value))
 }
 </script>
@@ -40,7 +38,7 @@ function select(value) {
     </BaseButton>
     <select
       class="w-full truncate rounded bg-gray-100 px-2 py-1 text-2xl"
-      @change="select($event.target.value)"
+      @change="select(($event.target as HTMLSelectElement).value)"
     >
       <option :selected="isNotSelected" disabled value="">
         {{ placeholder }}

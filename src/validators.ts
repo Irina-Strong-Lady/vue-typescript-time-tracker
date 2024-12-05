@@ -1,5 +1,5 @@
-import { BUTTON_TYPES, HOURS_IN_DAY, MIDNIGHT_HOUR, NAV_ITEMS } from './constants'
-import { ICONS } from './icons'
+import { HOURS_IN_DAY, MIDNIGHT_HOUR, NAV_ITEMS } from '@/constants'
+import { ICONS } from '@/icons'
 
 export function isPageValid(page: any): boolean {
   return NAV_ITEMS.some((navItem): boolean => navItem.page === page)
@@ -7,14 +7,6 @@ export function isPageValid(page: any): boolean {
 
 export function isIconValid(icon: any): boolean {
   return Object.keys(ICONS).includes(icon)
-}
-
-export function isNavItemValid(navItem: any): boolean {
-  return NAV_ITEMS.includes(navItem)
-}
-
-export function isButtonTypeValid(type: any): boolean {
-  return BUTTON_TYPES.includes(type)
 }
 
 export function isTimelineItemValid({ hour }: any): boolean {
@@ -32,10 +24,6 @@ export function isHourValid(hour: any): boolean {
   return isNumber(hour) && isBetween(hour, MIDNIGHT_HOUR, HOURS_IN_DAY - 1)
 }
 
-export function validateSelectOptions(options: any): boolean {
-  return options.every(isSelectOptionValid)
-}
-
 export function isNull(value: any): boolean {
   return value === null
 }
@@ -48,20 +36,8 @@ export function isUndefinedOrNull(value: any): boolean {
   return isUndefined(value) || isNull(value)
 }
 
-export function isSelectValueValid(value: any): boolean {
-  return isNotEmptyString(value) || isNumberOrNull(value)
-}
-
-function isNumberOrNull(value: any): boolean {
-  return isNumber(value) || isNull(value)
-}
-
 function isNumber(value: any): boolean {
   return typeof value === 'number'
-}
-
-function isSelectOptionValid({ value, label }: any): boolean {
-  return (isNumber(value) || isNotEmptyString(value)) && isNotEmptyString(label)
 }
 
 function isBetween(value: any, start: any, end: any): boolean {

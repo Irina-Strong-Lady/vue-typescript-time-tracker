@@ -4,7 +4,7 @@ import {
   MILLISECONDS_IN_SECOND,
   SECONDS_IN_DAY,
   SECONDS_IN_HOUR
-} from './constants'
+} from '@/constants'
 
 const midnight = computed((): number => new Date(now.value).setHours(0, 0, 0, 0))
 
