@@ -7,10 +7,9 @@ import {
   SECONDS_IN_MINUTE
 } from '@/constants'
 import { type SelectOption, ProgressColorClass } from '@/types'
-import { isNull } from '@/validators'
 
 export function normalizeSelectValue(value: any): any {
-  return isNull(value) || isNaN(value) ? value : +value
+  return value === 0 || isNaN(value) ? value : +value
 }
 
 export function getProgressColorClass(percentage: number): ProgressColorClass {
