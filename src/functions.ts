@@ -8,8 +8,8 @@ import {
 } from '@/constants'
 import { type SelectOption, ProgressColorClass } from '@/types'
 
-export function normalizeSelectValue(value: any): any {
-  return value === 0 || isNaN(value) ? value : +value
+export function normalizeSelectValue(value: string | null): number | string | null {
+  return value === null || isNaN(Number(value)) ? value : +value
 }
 
 export function getProgressColorClass(percentage: number): ProgressColorClass {
